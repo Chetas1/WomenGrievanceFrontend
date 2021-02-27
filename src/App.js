@@ -1,17 +1,14 @@
 
 import './App.css';
-import Chatbot from 'react-chatbot-kit';
-import config from './chatbot/config';
-import ActionProvider from './chatbot/ActionProvider';
-import MessageParser from './chatbot/MessageParser';
+import NavigationBar from './components/Navbar/Navbar';
+import DefaultBody from './components/Body/DefaultBody';
 
 function App() {
   return (
-    <div className="App">
-      <div style={{maxWidth:"300px"}}>
-        <Chatbot config={config} actionProvider={ActionProvider} messageParser={MessageParser}/>
-      </div>
-    </div>
+    <>
+      <NavigationBar />
+      <DefaultBody />
+    </>
   );
 }
 
