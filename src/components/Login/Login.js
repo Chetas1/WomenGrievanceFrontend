@@ -42,6 +42,7 @@ function LoginModal(props) {
             if(response.data == true)
             {
               localStorage.setItem('userId',un);
+              localStorage.setItem('isLoggedIn',true);
               history.push("/complaints");
               props.onHide();
               setValidFlag(false);
