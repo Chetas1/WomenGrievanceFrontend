@@ -39,6 +39,7 @@ function LoginModal(props) {
           if(response.status === 200) { 
             if(response.data == true)
             {
+              localStorage.setItem('userId',un);
               setValidFlag(false);
             }
             else
