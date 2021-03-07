@@ -2,9 +2,11 @@ import React,{useState} from 'react';
 import { Modal, Button, Form } from "react-bootstrap"; 
 import LoginService from '../../service/LoginService';
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 function LoginModal(props) {
 
+  const history = useHistory();
   let [showError, setValidFlag] = useState(false);
   let [userId, setUserId] = useState('');
   let [password, setPassword] = useState('');
@@ -40,6 +42,8 @@ function LoginModal(props) {
             if(response.data == true)
             {
               localStorage.setItem('userId',un);
+              history.push("/complaints");
+              props.onHide();
               setValidFlag(false);
             }
             else
