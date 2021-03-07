@@ -1,41 +1,59 @@
 import React,{useState} from 'react';
 import { Modal, Button, Form } from "react-bootstrap"; 
 import LoginService from '../../service/LoginService';
+import { useDispatch, useSelector } from "react-redux";
 
 function LoginModal(props) {
 
+  let [showError, setValidFlag] = useState(false);
   let [userId, setUserId] = useState('');
   let [password, setPassword] = useState('');
+  const userNameState = useSelector((state) => state.userName);
+  const passwordState = useSelector((state) => state.password);
+  const dispatch = useDispatch();
 
   function setValueOfUserId(event) {
     const { name, value } = event.target;
     setUserId(value);
+    if(value != '')
+    {
+      console.log(value);
+      dispatch({type : 'SET_USERNAME', payload : value})
+    }
   }
 
   function setValueOfUserPassword(event) {
     const { name, value } = event.target;
     setPassword(value);
+    if(value != '')
+    {
+      console.log(value);
+      dispatch({type : 'SET_PASSWORD', payload : value})
+    }
   }
 
-  const fetchData = React.useCallback(() => {
-    LoginService.checkIfUserIsValid(userId,password).then(response => {
+  const fetchData = React.useCallback((un,pwd) => {
+    if(un != undefined && pwd != undefined)
+    {
+    LoginService.checkIfUserIsValid(un,pwd).then(response => {
           if(response.status === 200) { 
-            if(response.data)
+            if(response.data == true)
             {
-
+              setValidFlag(false);
             }
             else
             {
-
+              setValidFlag(true);
             }
           }
        })
+      }
   }, [])
 
   function submitForm(event) {
     event.preventDefault();
     console.log(userId);
-    fetchData();
+      fetchData(userId, password);
   }
 
   React.useEffect(() => {
@@ -44,6 +62,7 @@ function LoginModal(props) {
 
 
     return (
+      <>
       <Modal
         {...props}
         size="lg"
@@ -70,7 +89,8 @@ function LoginModal(props) {
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="Password" onChange={setValueOfUserPassword}/>
                 <Form.Text className="text-muted">
-                    Your password will always be encrypted
+                   { (!showError) ? "Your password will always be encrypted" 
+                   :<font color="red">Either username or password is incorrect. Please try again.</font> }
                 </Form.Text>
             </Form.Group>
 
@@ -84,6 +104,7 @@ function LoginModal(props) {
           <Button onClick={props.onHide}>Close</Button>
         </Modal.Footer>
       </Modal>
+      </>
     );
   }
   
