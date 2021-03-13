@@ -8,4 +8,8 @@ export default class ComplaintsService {
     static storeComplaintOfUser(complaint) {
         return base.post(`storeListOfComplaints`, complaint);
     }
+
+    static getComplaintMessages(complaintId) {
+        return base.get(`getComplaintMessages/${complaintId}`);
+    }
 }
