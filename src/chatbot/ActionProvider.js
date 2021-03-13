@@ -10,7 +10,7 @@ class ActionProvider {
     };
 
     askForYearofAddmission = () => {
-      const message = this.createChatBotMessage("Please tell you mobile number");
+      const message = this.createChatBotMessage("Please tell you branch code");
       this.addMessageToState(message);
     };
   
@@ -44,7 +44,7 @@ class ActionProvider {
     };
 
     thanksForSubmitingInfo= () => {
-      const message = this.createChatBotMessage("Thanks for submitting information we have registered your complaint");
+      const message = this.createChatBotMessage("Do you want to register your complaint?");
       this.addMessageToState(message);
     }
   

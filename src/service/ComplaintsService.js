@@ -4,4 +4,8 @@ export default class ComplaintsService {
     static getComplaintsAssignedToUser(userId) {
         return base.get(`getListOfComplaints/${userId}`);
     }
+
+    static storeComplaintOfUser(complaint) {
+        return base.post(`storeListOfComplaints`, complaint);
+    }
 }
