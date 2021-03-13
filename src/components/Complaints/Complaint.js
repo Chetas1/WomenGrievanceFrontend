@@ -1,5 +1,5 @@
 import React, { useState } from 'react'; 
-import {Row, Col, Container, ListGroup, Card, Alert} from "react-bootstrap";
+import {Row, Col, Container, ListGroup, Card, Button} from "react-bootstrap";
 import ComplaintsService from '../../service/ComplaintsService';
   
 function Complaint (props){ 
@@ -10,13 +10,21 @@ function Complaint (props){
     "Hello. Welcome to Women Grievance!",
     "Violation against women/girls is a human right violation",
     "What kind of violance do you need help with",
-    "Registering complain for Sexual Voilance",
     "Please tell your email Id",
     "Please tell you branch code",
     "Please tell use more about incident",
     "Where and when it happened?",
-    "Who witnessed it?"
+    "Who witnessed it?",
+    "Do you want to register your complaint?"
   ]);
+
+  const fetchData = React.useCallback((complaint) => {
+    ComplaintsService.getComplaintMessages(complaint.target.value).then(response => {
+          if(response.status === 200) { 
+            setMessages(response.data);
+          }
+       })
+  }, [])
 
   React.useEffect(() => {
      ComplaintsService.getComplaintsAssignedToUser(localStorage.getItem('userId')).then(response => {
@@ -43,7 +51,7 @@ function Complaint (props){
             <ListGroup>
               {
                 listOfEmailIds.map((emailId, index) => (
-                  <ListGroup.Item>{emailId.RegisteredBy}</ListGroup.Item> 
+                  <Button onClick={fetchData} value={emailId.Complaint}>{emailId.RegisteredBy}</Button> 
                 ))
               }
             </ListGroup>
