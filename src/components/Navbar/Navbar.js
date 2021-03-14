@@ -15,6 +15,15 @@ function NavigationBar() {
           <Nav className="mr-auto">
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#features">Mission</Nav.Link>
+           
+            {
+              (localStorage.getItem('isLoggedIn')== 'true') ?
+              <Nav.Link onClick={() =>{history.push('/complaints')}}>Messages</Nav.Link> : <> </>
+            }
+            {
+              (localStorage.getItem('isLoggedIn')== 'true') ?
+              <Nav.Link onClick={() =>{history.push('/timeline')}}>Timeline</Nav.Link> : <> </>
+            }
             {
               (localStorage.getItem('isLoggedIn')== 'true') ?
                <Nav.Link onClick={() =>{

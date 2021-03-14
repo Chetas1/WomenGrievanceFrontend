@@ -6,92 +6,22 @@ const FooterPage = () => {
     <MDBFooter color="black" className="page-footer font-small pt-4 mt-4">
       <MDBContainer fluid className="text-center text-md-left">
         <MDBRow>
-          <MDBCol md="6">
+          <MDBCol md="12">
             <h5 className="text-uppercase mb-4 mt-3 font-weight-bold">
               Women Grievance
             </h5>
             <p>
-              Here you can use rows and columns here to organize your footer
-              content. Lorem ipsum dolor sit amet, consectetur adipisicing
-              elit.
+              In order to maintain safety and security to thegirls and women, a cell has been constituted for redressal of
+              grievances. Our women grievance cell stays alert all the time to prevent sexual abuse.
             </p>
           </MDBCol>
           <hr className="clearfix w-100 d-md-none" />
-          <MDBCol md="2">
-            <h5 className="text-uppercase mb-4 mt-3 font-weight-bold">
-              Links
-            </h5>
-            <ul className="list-unstyled">
-              <li>
-                <a href="#!">Link 1</a>
-              </li>
-              <li>
-                <a href="#!">Link 2</a>
-              </li>
-              <li>
-                <a href="#!">Link 3</a>
-              </li>
-              <li>
-                <a href="#!">Link 4</a>
-              </li>
-            </ul>
-          </MDBCol>
-          <hr className="clearfix w-100 d-md-none" />
-          <MDBCol md="2">
-            <h5 className="text-uppercase mb-4 mt-3 font-weight-bold">
-              Links
-            </h5>
-            <ul className="list-unstyled">
-              <li>
-                <a href="#!">Link 1</a>
-              </li>
-              <li>
-                <a href="#!">Link 2</a>
-              </li>
-              <li>
-                <a href="#!">Link 3</a>
-              </li>
-              <li>
-                <a href="#!">Link 4</a>
-              </li>
-            </ul>
-          </MDBCol>
-          <hr className="clearfix w-100 d-md-none" />
-          <MDBCol md="2">
-            <h5 className="text-uppercase mb-4 mt-3 font-weight-bold">
-              Links
-            </h5>
-            <ul className="list-unstyled">
-              <li>
-                <a href="#!">Link 1</a>
-              </li>
-              <li>
-                <a href="#!">Link 2</a>
-              </li>
-              <li>
-                <a href="#!">Link 3</a>
-              </li>
-              <li>
-                <a href="#!">Link 4</a>
-              </li>
-            </ul>
-          </MDBCol>
+         
         </MDBRow>
       </MDBContainer>
       <hr />
-      <div className="text-center py-3">
-        <ul className="list-unstyled list-inline mb-0">
-          <li className="list-inline-item">
-            <h5 className="mb-1">Register for free</h5>
-          </li>
-          <li className="list-inline-item">
-            <a href="#!" className="btn btn-danger btn-rounded">
-              Sign up!
-            </a>
-          </li>
-        </ul>
-      </div>
-      <hr />
+      
+     
       <div className="text-center">
         <ul className="list-unstyled list-inline">
           <li className="list-inline-item">
@@ -123,7 +53,7 @@ const FooterPage = () => {
       </div>
       <div className="footer-copyright text-center py-3">
         <MDBContainer fluid>
-          &copy; {new Date().getFullYear()} Copyright: <a href="https://www.MDBootstrap.com"> MDBootstrap.com </a>
+          &copy; {new Date().getFullYear()} Copyright: <a target="_blank" href="http://www.hvpmcoet.in"> WomenGrievance </a>
         </MDBContainer>
       </div>
     </MDBFooter>

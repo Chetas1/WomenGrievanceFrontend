@@ -12,4 +12,16 @@ export default class ComplaintsService {
     static getComplaintMessages(complaintId) {
         return base.get(`getComplaintMessages/${complaintId}`);
     }
+
+    static getTimelines(complaintId) {
+        return base.get(`getTimeliness/${complaintId}`);
+    }
+
+    static resolveComplaint(complaintId) {
+        return base.get(`resolveComplaint/${complaintId}`);
+    }
+
+    static transferComplaint(complaintId,assignedTo) {
+        return base.get(`transferComplaint/${complaintId}/assignedToEmail/${assignedTo}`);
+    }
 }

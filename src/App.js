@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from './reducers/rootReducer';
 import Complaint from './components/Complaints/Complaint';
+import ComplaintTimeline from './components/Complaints/ComplaintTimeline';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 const store = createStore(rootReducer)
 
@@ -16,7 +17,8 @@ function App() {
       <NavigationBar />
       <Switch>
               <Route exact path='/' component = {DefaultBody}></Route> 
-              <Route exact path='/complaints' component={Complaint}></Route>  
+              <Route exact path='/complaints' component={Complaint}></Route> 
+              <Route exact path='/timeline' component={ComplaintTimeline}></Route> 
       </Switch> 
     </Provider>
    </Router>

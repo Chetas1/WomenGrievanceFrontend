@@ -31,11 +31,11 @@ function Complaint (props){
      ComplaintsService.getComplaintsAssignedToUser(localStorage.getItem('userId')).then(response => {
       if(response.status === 200) { 
          setEmailId(response.data);
-         if(setEmailId != null)
+         if(setEmailId != null && response.data.length > 0)
          {
             localStorage.setItem('userEmail',response.data[0].RegisteredBy);
             ComplaintsService.getComplaintMessages(response.data[0].Complaint).then(response => {
-                if(response.status === 200) {
+                if(response.status === 200 && response.data != undefined) {
                    setMessages(response.data.Messages);
                 }
             });
@@ -85,7 +85,7 @@ function Complaint (props){
           </Row>
           <Row>
             <Col xs={14} md={3}>
-                <Button onClick={() => window.location.assign(`mailto:abmarathe@hvpm.com?cc=${localStorage.getItem('userEmail')},anjaliraut@hvpm.com&subject=Resolving%20Complaint`) }>Resolve Complaint</Button>
+                { listOfEmailIds.length > 0 ? <Button onClick={() => window.location.assign(`mailto:abmarathe@hvpm.com?cc=${localStorage.getItem('userEmail')},anjaliraut@hvpm.com&subject=Resolving%20Complaint`) }>Resolve Complaint</Button>:<></> }
             </Col>
           </Row>
           </Container>
