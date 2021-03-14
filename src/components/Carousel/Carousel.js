@@ -1,5 +1,4 @@
 import { Carousel } from "react-bootstrap";
-import image1 from "../../Images/Image1.png"; 
 import image2 from "../../Images/Image2.png";
 import image3 from "../../Images/Image3.png";
 
@@ -9,7 +8,7 @@ function CarouselComponent() {
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src={image1}
+      src={image3}
       alt="First slide"
     />
     <Carousel.Caption>

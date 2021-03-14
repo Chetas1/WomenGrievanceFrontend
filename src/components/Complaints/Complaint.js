@@ -21,7 +21,8 @@ function Complaint (props){
   const fetchData = React.useCallback((complaint) => {
     ComplaintsService.getComplaintMessages(complaint.target.value).then(response => {
           if(response.status === 200) { 
-            setMessages(response.data);
+            setMessages(response.data.Messages);
+            localStorage.setItem('userEmail',response.data.RegisteredBy);
           }
        })
   }, [])
@@ -32,9 +33,10 @@ function Complaint (props){
          setEmailId(response.data);
          if(setEmailId != null)
          {
+            localStorage.setItem('userEmail',response.data[0].RegisteredBy);
             ComplaintsService.getComplaintMessages(response.data[0].Complaint).then(response => {
                 if(response.status === 200) {
-                   setMessages(response.data);
+                   setMessages(response.data.Messages);
                 }
             });
          }
@@ -46,6 +48,15 @@ function Complaint (props){
     return (
          
         <Container style={{padding:50}}>
+          <Row>
+            <Col xs={14} md={3}>
+              <center><b>Complaints registered by</b></center>
+            </Col>
+            <Col xs={14} md={9}>
+              <center><b>Messages History</b></center>
+            </Col>
+          </Row>
+          <br/>
           <Row>
             <Col xs={14} md={3}>
             <ListGroup>
@@ -70,6 +81,11 @@ function Complaint (props){
                   }
                 </Card.Body>
               </Card>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={14} md={3}>
+                <Button onClick={() => window.location.assign(`mailto:abmarathe@hvpm.com?cc=${localStorage.getItem('userEmail')},anjaliraut@hvpm.com&subject=Resolving%20Complaint`) }>Resolve Complaint</Button>
             </Col>
           </Row>
           </Container>
