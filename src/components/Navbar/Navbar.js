@@ -13,8 +13,7 @@ function NavigationBar() {
         <Navbar bg="dark" variant="dark">
           <Navbar.Brand href="#home">Women Grievance</Navbar.Brand>
           <Nav className="mr-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Mission</Nav.Link>
+            
            
             {
               (localStorage.getItem('isLoggedIn')== 'true') ?
