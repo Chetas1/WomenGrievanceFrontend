@@ -67,7 +67,7 @@ function Complaint (props){
               }
             </ListGroup>
             </Col>
-            <Col xs={3} md={9}>
+            <Col xs={12} md={9}>
               <Card>
                 <Card.Body>
                   {

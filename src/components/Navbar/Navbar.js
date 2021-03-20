@@ -10,8 +10,10 @@ function NavigationBar() {
 
     return (
       <>
-        <Navbar bg="dark" variant="dark">
+        <Navbar bg="dark" variant="dark" expand="lg">
           <Navbar.Brand href="#home">Women Grievance</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             
            
@@ -37,6 +39,7 @@ function NavigationBar() {
                 }}>Login</Nav.Link>
             }
           </Nav>
+          </Navbar.Collapse>
         </Navbar>
         <Login show={modalShow} onHide={() => setModalShow(false)}/>
       </>

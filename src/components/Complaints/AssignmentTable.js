@@ -28,7 +28,7 @@ function AssignmentTable(props) {
     }
 
     return(
-    <Table striped bordered hover size="sm">
+    <Table responsive="sm">
   <thead>
     <tr>
       <th>#</th>

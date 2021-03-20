@@ -4,7 +4,7 @@ import { createChatBotMessage } from "react-chatbot-kit";
 import Options from "../components/Options/Options";
 
 const config = {
-  botName: "LearningBot",
+  botName: "Chatbot",
   initialMessages: [
     createChatBotMessage(`Hello. Welcome to Women Grievance!`),
     createChatBotMessage(`Violation against women/girls is a human right violation`),

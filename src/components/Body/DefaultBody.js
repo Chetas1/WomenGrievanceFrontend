@@ -21,13 +21,13 @@ function DefaultBody() {
                  </Card.Body>
               </Card>
             </Col>
-            <Col xs={3} md={1}>
+            <Col xs={12} md={1}>
                    <Chatbot config={config} actionProvider={ActionProvider} messageParser={MessageParser}/>
             </Col>
           </Row>
           <br/>
           <Row>
-          <Col xs={3} md={12}>
+          <Col xs={12} md={12}>
             <Card>
               <Card.Img variant="top" src={hvpmImage} />
               <Card.Body>
