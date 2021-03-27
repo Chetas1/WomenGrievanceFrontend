@@ -8,11 +8,15 @@ function ComplaintTimeline (props){
   let [listOfEmailIds, setEmailId] = useState([]);
   let [timelineData, setTimelineData] = useState([]);
   let [statusUpdated, updateComplaintStatus] = useState(false);
+  let [complaintId, setComplaintId] = useState('');
 
   const fetchData = React.useCallback((complaint) => {
+
     ComplaintsService.getTimelines(complaint.target.value).then(response => {
           if(response.status === 200) {
+            localStorage.setItem('complaintId',complaint.target.value);
             setTimelineData(response.data);
+            
           }
        })
   }, [])
@@ -49,7 +53,7 @@ function ComplaintTimeline (props){
             </Col>
             <Col xs={14} md={9}>
               <center>
-                 <AssignmentTable timeline={timelineData} complaintStatus={updateComplaintStatus} statusUpdated={statusUpdated}/>
+                 <AssignmentTable complaintId={complaintId} timeline={timelineData} complaintStatus={updateComplaintStatus} statusUpdated={statusUpdated}/>
               </center>
             </Col>
           </Row>

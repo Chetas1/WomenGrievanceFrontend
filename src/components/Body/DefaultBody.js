@@ -1,5 +1,6 @@
 
 import {Row, Col, Container, Card} from "react-bootstrap";
+import React from 'react';
 import Chatbot from 'react-chatbot-kit';
 import config from '../../chatbot/config';
 import ActionProvider from '../../chatbot/ActionProvider';
@@ -9,6 +10,7 @@ import hvpmImage from "../../Images/hvpm.jpg";
 import FooterPage from "../Footer/Footer";
 
 function DefaultBody() {
+
     return (
         <div className="App">  
         <Container>

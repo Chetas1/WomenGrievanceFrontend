@@ -1,10 +1,11 @@
 import React,{ useState } from 'react';
 import {Table,Dropdown} from "react-bootstrap";
 import ComplaintsService from '../../service/ComplaintsService';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+import TransferComplaint from './TransferComplaint';
+import { NotificationManager} from 'react-notifications';
 
 function AssignmentTable(props) {
-    
+    const [showModal, setModalVisible] = useState(false);
 
     const resolveComplaint = React.useCallback((complaint) => {
         ComplaintsService.resolveComplaint(complaint).then(response => {
@@ -15,12 +16,13 @@ function AssignmentTable(props) {
            })
       }, [])
 
-      const transferComplaint = React.useCallback((complaint,assignedTo) => {
-        ComplaintsService.transferComplaint(complaint, assignedTo).then(response => {
+      const transferComplaint = React.useCallback((assignedTo) => {
+        ComplaintsService.transferComplaint(localStorage.getItem('complaintId'), assignedTo).then(response => {
               if(response.status === 200) {
-                props.complaintStatus(!props.statusUpdated);
+                
               }
            })
+           setModalVisible(false);
       }, [])
 
     function getDays(date1, date2) {
@@ -28,6 +30,7 @@ function AssignmentTable(props) {
     }
 
     return(
+      <>
     <Table responsive="sm">
   <thead>
     <tr>
@@ -44,7 +47,7 @@ function AssignmentTable(props) {
             <tr>
                 <td>{index+1}</td>
                 <td>{message.AssignedTo}</td>
-                <td>{getDays(message.AssignedDate, new Date())}</td>
+                <td>{getDays(message.AssignedDate, (message.Status != "Active")? message.ResolvedDate : new Date())}</td>
                 <td>{message.Status}</td>
                 <td>
                     <Dropdown>
@@ -57,7 +60,7 @@ function AssignmentTable(props) {
                             <Dropdown.Item onClick={()=>{resolveComplaint(message.ComplaintId)}}>Resolve</Dropdown.Item>}
                             {(message.Status == "Resolved" || localStorage.getItem('userId') != message.AssignedTo || message.Status == "Transferred" ) ?
                             <Dropdown.Item disabled>Transfer</Dropdown.Item> :
-                            <Dropdown.Item onClick={()=> {transferComplaint(message.ComplaintId,message.AssignedTo)}}>Transfer</Dropdown.Item>}
+                            <Dropdown.Item onClick={()=> {setModalVisible(true)}}>Transfer</Dropdown.Item>}
                         </Dropdown.Menu>
                     </Dropdown>    
                 </td>
@@ -66,8 +69,9 @@ function AssignmentTable(props) {
     }
 
   </tbody>
-</Table> )
-
-}
+</Table> 
+<TransferComplaint show={showModal} onHide={() => setModalVisible(false)} transferComplaint={transferComplaint}/>
+</>
+)}
 
 export default AssignmentTable;

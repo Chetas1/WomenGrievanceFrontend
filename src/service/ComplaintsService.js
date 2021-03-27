@@ -22,6 +22,6 @@ export default class ComplaintsService {
     }
 
     static transferComplaint(complaintId,assignedTo) {
-        return base.get(`transferComplaint/${complaintId}/assignedToEmail/${assignedTo}`);
+        return base.get(`transferComplaint/${complaintId}/assignedToEmail/${assignedTo}/transferFrom/${localStorage.getItem('userId')}`);
     }
 }

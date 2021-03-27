@@ -115,7 +115,3 @@ function LoginModal(props) {
   }
   
   export default LoginModal;
-
-  // LoginService.checkIfUserIsValid(userId,password).then(response => {
-  // if(response.status === 200) { let valid = response.data.valid }
-  // })
