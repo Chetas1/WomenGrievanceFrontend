@@ -33,7 +33,7 @@ function TransferComplaint(props) {
                     <option value={"NA"} >Select User</option> :<></>
                     {
                      users.map((user, index) => (
-                        (user != undefined) ?
+                        (user != undefined && user.UserId != localStorage.getItem('userId')) ?
                             <option key={index} value={user.UserId}>{user.Name}</option> :<></>
                         ))
                     }
