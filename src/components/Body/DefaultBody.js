@@ -11,6 +11,10 @@ import FooterPage from "../Footer/Footer";
 
 function DefaultBody() {
 
+   function test(){
+   console.log("Test");
+  }
+
     return (
         <div className="App">  
         <Container>
