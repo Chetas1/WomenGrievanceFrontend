@@ -11,7 +11,7 @@ const FooterPage = () => {
               Women Grievance
             </h5>
             <p>
-              In order to maintain safety and security to thegirls and women, a cell has been constituted for redressal of
+              In order to maintain safety and security to the girls and women, a cell has been constituted for redressal of
               grievances. Our women grievance cell stays alert all the time to prevent sexual abuse.
             </p>
           </MDBCol>

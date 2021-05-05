@@ -13,6 +13,11 @@ class ActionProvider {
       const message = this.createChatBotMessage("Please tell you branch code");
       this.addMessageToState(message);
     };
+
+    successfullyRegistered = () => {
+      const message = this.createChatBotMessage("Your complaint has been successfully registered");
+      this.addMessageToState(message);
+    };
   
     getUserDetailsForSexualVoilance = () => {
       let message = this.createChatBotMessage( "Registering complain for Sexual Voilance" );
@@ -29,7 +34,7 @@ class ActionProvider {
     };
     
     askForHarassementDetails = () => {
-      const message = this.createChatBotMessage("Please tell use more about incident");
+      const message = this.createChatBotMessage("Please tell us more about incident");
       this.addMessageToState(message);
     };
 

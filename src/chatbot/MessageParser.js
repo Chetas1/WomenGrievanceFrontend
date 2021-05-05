@@ -26,6 +26,7 @@ class MessageParser {
         };
         ComplaintsService.storeComplaintOfUser(complaint).then(response => {
           if(response.status === 200) { 
+            this.actionProvider.successfullyRegistered();
           }
         })
       }
@@ -35,7 +36,7 @@ class MessageParser {
       else if(this.state.messages.some(item => "Where and when it happened?" === item.message)) {
         this.actionProvider.askForWhoWitnessedIt();
       }
-      else if(this.state.messages.some(item => "Please tell use more about incident" === item.message)) {
+      else if(this.state.messages.some(item => "Please tell us more about incident" === item.message)) {
         this.actionProvider.askForWhenAndWhereItHappend();
       }
       else if(this.state.messages.some(item => "Registering complain for Harrasment" === item.message || "Registering complain for Sexual Voilance" === item.message)) {
