@@ -18,7 +18,7 @@ export default class ComplaintsService {
     }
 
     static resolveComplaint(complaintId) {
-        return base.get(`resolveComplaint/${complaintId}`);
+        return base.get(`resolveComplaint/${complaintId}/resolvedBy/${localStorage.getItem('userId')}`);
     }
 
     static transferComplaint(complaintId,assignedTo) {
