@@ -85,7 +85,7 @@ function LoginModal(props) {
         <Form onSubmit={submitForm}>
             <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" onChange={setValueOfUserId}/>
+                <Form.Control type="email" placeholder="Enter email" onChange={setValueOfUserId} required/>
                 <Form.Text className="text-muted">
                     We'll never share your email with anyone else.
                 </Form.Text>
@@ -93,7 +93,7 @@ function LoginModal(props) {
 
             <Form.Group controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" onChange={setValueOfUserPassword}/>
+                <Form.Control type="password" placeholder="Password" onChange={setValueOfUserPassword} required/>
                 <Form.Text className="text-muted">
                    { (!showError) ? "Your password will always be encrypted" 
                    :<font color="red">Either username or password is incorrect. Please try again.</font> }

@@ -34,7 +34,8 @@ function NavigationBar() {
                   setLogout(true);
                } }>Logout</Nav.Link> :
                <Nav.Link onClick={() => {
-                 setModalShow(true)
+                 localStorage.clear();
+                 setModalShow(true);
                  setLogout(false);                                      
                 }}>Login</Nav.Link>
             }
