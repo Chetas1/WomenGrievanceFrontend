@@ -10,10 +10,10 @@ function AssignmentTable(props) {
     const resolveComplaint = React.useCallback((complaint) => {
         ComplaintsService.resolveComplaint(complaint).then(response => {
               if(response.status === 200) {
-                NotificationManager.info('Info message');
-                props.complaintStatus(!props.statusUpdated);
+                 
               }
-           })
+           });
+           props.getData(props.ComplaintId);
       }, [])
 
       const transferComplaint = React.useCallback((assignedTo) => {
@@ -22,6 +22,7 @@ function AssignmentTable(props) {
                 
               }
            })
+           props.getData(props.ComplaintId);
            setModalVisible(false);
       }, [])
 

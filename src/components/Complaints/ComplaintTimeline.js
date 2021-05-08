@@ -21,6 +21,16 @@ function ComplaintTimeline (props){
        })
   }, [])
 
+  const getData = React.useCallback((complaint) => {
+    ComplaintsService.getTimelines(localStorage.getItem("complaintId")).then(response => {
+          if(response.status === 200) {
+            
+            setTimelineData(response.data);
+            
+          }
+       })
+  }, [])
+
   React.useEffect(() => {
     ComplaintsService.getComplaintsAssignedToUser(localStorage.getItem('userId')).then(response => {
      if(response.status === 200) { 
@@ -53,7 +63,7 @@ function ComplaintTimeline (props){
             </Col>
             <Col xs={14} md={9}>
               <center>
-                 <AssignmentTable complaintId={complaintId} timeline={timelineData} complaintStatus={updateComplaintStatus} statusUpdated={statusUpdated}/>
+                 <AssignmentTable complaintId={complaintId} timeline={timelineData} getData={getData} complaintStatus={updateComplaintStatus} statusUpdated={statusUpdated}/>
               </center>
             </Col>
           </Row>
