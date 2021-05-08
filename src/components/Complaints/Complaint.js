@@ -85,7 +85,7 @@ function Complaint (props){
           </Row>
           <Row>
             <Col xs={14} md={3}>
-                { listOfEmailIds.length > 0 ? <Button onClick={() => window.location.assign(`mailto:abmarathe@hvpm.com?cc=${localStorage.getItem('userEmail')},anjaliraut@hvpm.com&subject=Resolving%20Complaint`) }>Resolve Complaint</Button>:<></> }
+                { listOfEmailIds.length > 0 ? <Button onClick={() => window.location.assign(`mailto:abmarathe@hvpm.com?cc=${localStorage.getItem('userEmail')},anjaliraut@hvpm.com&subject=Resolving%20Complaint`) }>Mailing</Button>:<></> }
             </Col>
           </Row>
           </Container>
