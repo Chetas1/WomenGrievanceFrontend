@@ -12,10 +12,11 @@ function Complaint (props){
     "What kind of violance do you need help with",
     "Please tell your email Id",
     "Please tell you branch code",
-    "Please tell use more about incident",
+    "Please tell us more about incident",
     "Where and when it happened?",
     "Who witnessed it?",
-    "Do you want to register your complaint?"
+    "Do you want to register your complaint?",
+    "Please tell use more about incident",
   ]);
 
   const fetchData = React.useCallback((complaint) => {
