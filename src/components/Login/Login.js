@@ -39,10 +39,11 @@ function LoginModal(props) {
     {
     LoginService.checkIfUserIsValid(un,pwd).then(response => {
           if(response.status === 200) { 
-            if(response.data == true)
+            if(response.data !== undefined)
             {
               localStorage.setItem('userId',un);
               localStorage.setItem('isLoggedIn',true);
+              localStorage.setItem('branchCode',response.data.Department);
               history.push("/complaints");
               props.onHide();
               setValidFlag(false);
